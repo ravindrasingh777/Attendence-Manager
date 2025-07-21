@@ -1,10 +1,8 @@
 import React from "react";
-import fetchuserdata from "@/apicalls/fetchdata";
 import Table from "@/components/table";
 import Link from "next/link";
 import AdminDetails from "@/components/AdminDetails";
 import { GetAdminsData } from "../../../utilis/AdminHelper";
-import { cookies } from "next/headers";
 import { GetUsersData } from "../../../utilis/UserHelper";
 
 const Page = async () => {
@@ -13,18 +11,20 @@ const Page = async () => {
 
   const usersdata = await GetUsersData();
   console.log(usersdata);
-  const plainusers = usersdata.map((user) => ({
+  const plainusers = usersdata?.map((user) => ({
     _id: user._id.toString(), // convert ObjectId to string
     Email: user.Email,
     Password: user.Password,
     ConfirmPassword: user.ConfirmPassword,
     createdAt: user.createdAt.toString(),
   }));
+  console.log("plainuser", plainusers);
 
   // Get data from backend(mongodb) without calling api..
   const adminsData = await GetAdminsData();
+  console.log("adminsdata", adminsData);
   // convert server arrobj to normal arrobj...
-  const plainAdmins = adminsData.map((admin) => ({
+  const plainAdmins = adminsData?.map((admin) => ({
     _id: admin._id.toString(), // convert ObjectId to string
     Email: admin.Email,
     Password: admin.Password,
