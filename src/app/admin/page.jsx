@@ -5,14 +5,24 @@ import Link from "next/link";
 import AdminDetails from "@/components/AdminDetails";
 import { GetAdminsData } from "../../../utilis/AdminHelper";
 import { cookies } from "next/headers";
+import { GetUsersData } from "../../../utilis/UserHelper";
 
 const Page = async () => {
-  const response = await fetchuserdata();
-  const result = await response?.json();
+  // const response = await fetchuserdata();
+  // const result = await response?.json();
+
+  const usersdata = await GetUsersData();
+  console.log(usersdata);
+  const plainusers = usersdata.map((user) => ({
+    _id: user._id.toString(), // convert ObjectId to string
+    Email: user.Email,
+    Password: user.Password,
+    ConfirmPassword: user.ConfirmPassword,
+    createdAt: user.createdAt.toString(),
+  }));
 
   // Get data from backend(mongodb) without calling api..
   const adminsData = await GetAdminsData();
-
   // convert server arrobj to normal arrobj...
   const plainAdmins = adminsData.map((admin) => ({
     _id: admin._id.toString(), // convert ObjectId to string
@@ -25,7 +35,7 @@ const Page = async () => {
   return (
     <>
       <AdminDetails />
-      <Table details={result?.userData} actions="true" />
+      <Table details={plainusers} actions="true" />
       <div className="flex w-full items-center justify-center gap-1 mt-2">
         <Link href="/admin-register">
           <button className="px-2 py-1  rounded bg-green-500 text-white">
