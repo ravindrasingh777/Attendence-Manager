@@ -22,10 +22,6 @@ export default function EditUserComponent() {
 
   //
   useEffect(() => {
-    const fetchdetails = async () => {
-      // your logic
-    };
-
     fetchdetails();
   }, []);
 
