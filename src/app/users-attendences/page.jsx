@@ -6,7 +6,7 @@ import AttendenceTable from "@/components/AttendenceTable";
 const Page = async () => {
   const response = await GetAllAttendences();
   const attendences = response?.attendences;
-  const plainobj = attendences.map((attend) => ({
+  const plainobj = attendences?.map((attend) => ({
     id: attend._id.toString(),
     userId: attend.userId.toString(),
     Attendence: attend.Attendence,

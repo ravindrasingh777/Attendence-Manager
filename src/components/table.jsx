@@ -33,7 +33,7 @@ const Table = ({ details, actions = "" }) => {
           <table className="min-w-full table-auto text-sm text-left">
             <thead className="bg-gray-100 text-gray-700 uppercase">
               <tr>
-                <th className="px-6 py-3">User's Email</th>
+                <th className="px-6 py-3">User&apos;s Email</th>
                 <th className="px-6 py-3">Password</th>
                 <th className="px-6 py-3">Confirm-Password</th>
                 <th className="px-6 py-3 text-center">CreatedAt</th>

@@ -43,8 +43,8 @@ const HomePage = () => {
             Simplify Employee Attendance
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 mb-8">
-            Track, manage, and optimize your team's attendance with ease and
-            accuracy.
+            Track, manage, and optimize your team&apos;s attendance with ease
+            and accuracy.
           </p>
           <Link href="/user-login">
             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">

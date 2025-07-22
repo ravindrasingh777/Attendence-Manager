@@ -7,7 +7,7 @@ const Page = async ({ params }) => {
   console.log(id, "id");
   const response = await GetAllAttendenceById(id);
   const attendences = response?.attendences;
-  const plainobj = attendences.map((attend) => ({
+  const plainobj = attendences?.map((attend) => ({
     id: attend._id.toString(),
     userId: attend.userId.toString(),
     Attendence: attend.Attendence,
@@ -20,7 +20,7 @@ const Page = async ({ params }) => {
       <table className="min-w-full table-auto text-sm text-left">
         <thead className="bg-gray-100 text-gray-700 uppercase">
           <tr>
-            <th className="px-6 py-3">User's Name</th>
+            <th className="px-6 py-3">User&apos;s Name</th>
             <th className="px-6 py-3">User Id</th>
             <th className="px-6 py-3">Date-Time</th>
             <th className="px-6 py-3 ">Attendence</th>
