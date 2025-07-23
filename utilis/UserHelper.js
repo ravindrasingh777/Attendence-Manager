@@ -6,7 +6,6 @@ import UserModel from "../models/userModel";
 export async function GetUsersData() {
   try {
     const users = await UserModel.find();
-    console.log("usersbackene", users);
     return users;
   } catch (error) {
     return error.message;

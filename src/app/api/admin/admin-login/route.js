@@ -8,7 +8,7 @@ export async function POST(req) {
   try {
     const { email } = await req.json();
     console.log("email", email);
-    ConnectToDB();
+    await ConnectToDB();
     const adminUser = await AdminModel.findOne({ Email: email });
     if (adminUser) {
       cookies().set({

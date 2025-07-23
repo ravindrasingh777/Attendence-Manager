@@ -8,7 +8,7 @@ import UserModel from "../../../../models/userModel";
 export async function POST(req) {
   try {
     const { email, password, confirmPassword } = await req.json();
-    ConnectToDB();
+    await ConnectToDB();
     const emailExists = await AdminModel.findOne({ Email: email });
     const passwordExists = await AdminModel.findOne({ Password: password });
     if (emailExists || passwordExists) {

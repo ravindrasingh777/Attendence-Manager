@@ -6,7 +6,7 @@ export async function CreateAttendence(data) {
   try {
     const { userId, userName, attendence, dateTime } = data;
     console.log(userId, userName, attendence, dateTime);
-    ConnectToDB();
+    await ConnectToDB();
     const Attendence = new AttendenceModel({
       userId,
       userName,
@@ -46,7 +46,7 @@ export async function GetAllAttendences() {
 
 export async function ManageAttendence(value, id, dateTime) {
   try {
-    ConnectToDB();
+    await ConnectToDB();
     console.log("dateTime", dateTime);
     const userattendence = await AttendenceModel.findOne({
       dateTime: dateTime,

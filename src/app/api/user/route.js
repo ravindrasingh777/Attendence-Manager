@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export async function POST(req) {
   try {
     const { email, password, confirmPassword, name, mobile } = await req.json();
-    ConnectToDB();
+    await ConnectToDB();
     const emailExists = await UserModel.findOne({ Email: email });
     const passwordExists = await UserModel.findOne({ Password: password });
     if (emailExists || passwordExists) {
@@ -50,7 +50,7 @@ export async function POST(req) {
 
 export async function GET(req) {
   try {
-    ConnectToDB();
+    await ConnectToDB();
     const usersdata = await UserModel.find();
     return NextResponse.json({
       flag: 1,
